@@ -1,0 +1,31 @@
+name: Test Action
+
+on:
+  push:
+    branches:
+      - master
+      - main
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Print Hello
+        run: |
+          echo "========================================="
+          echo "🎉 GitHub Actions 测试成功！"
+          echo "========================================="
+          echo "当前时间: $(date)"
+          echo "运行环境: $(uname -a)"
+          echo "Python 版本: $(python3 --version)"
+          echo "========================================="
+          echo "✅ 如果你看到这个消息，说明 Actions 工作正常！"
+          echo "========================================="
+      
+      - name: Print Environment
+        run: |
+          echo "GITHUB_REPOSITORY: $GITHUB_REPOSITORY"
+          echo "GITHUB_ACTOR: $GITHUB_ACTOR"
+          echo "GITHUB_REF: $GITHUB_REF"
